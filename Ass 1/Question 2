@@ -1,0 +1,27 @@
+Question 2
+a) 
+test: x = [1,2,3,4,5]
+expected:  3
+
+b)
+test: x = [-1,2,3,4,5]
+expected: 3
+actual: 2
+
+c)
+test: x = [-1,2,2147483648,4,5]
+expected: 2
+actual: error
+
+d)
+Error State
+x = [-10, -9, 0, 99, 100]
+i = 1
+count = 0
+PC = first iteration of if
+
+Complete State
+x = [-10, -9, 0, 99, 100]
+i = 4
+count = 1
+PC = first iteration of if
