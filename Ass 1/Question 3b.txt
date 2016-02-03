@@ -20,17 +20,31 @@ Edge Pair Coverage:
 TR = {[0,1,2],[0,2,3],[1,2,3],
 	  [1,2,4],[1,2,5],[1,2,6],
 	  [2,3,7],[2,4,7],[2,5,6],
-	  [2,6,7],[3,7,9],[3,7,8],
-	  [4,7,9],[4,7,8],[5,6,7],
-	  [6,7,9],[6,7,8],[7,9,10],[
-	  7,8,10]}
+	  [2,6,7],[3,7,9],
+	  [3,7,8],<-- infeasible because node 3 states arg.length() == 0, but node 8 states arg.length() > 0
+	  [4,7,9],<-- infeasible because node 4 states arg.length() == 1, but node 9 states arg.length() == 0
+	  [4,7,8],[5,6,7],
+	  [6,7,9],<-- infeasible because node 6 states arg.length() >= 2, but node 9 states arg.length() == 0
+	  [6,7,8],[7,9,10],
+	  [7,8,10]}
 
 
 Prime Path Coverage
 
 TR = {[0,1,2,5,6,7,8,10],
-	  [0,1,2,5,6,7,9,10],
+	  [0,1,2,5,6,7,9,10],<-- infeasible because to get to node 5, arg.length() == 2, but in node 8 we're saying arg.length() == 0
 	  [0,1,2,4,7,8,10],
-	  [0,1,2,4,7,9,10],
+	  [0,1,2,4,7,9,10],<-- infeasible because to get to node 4, arg.length() == 1, but in node 8 we're saying arg.length() == 0
+	  [0,1,2,3,7,8,10],<-- infeasible because to get to node 3, arg.length() == 0, but in node 8 we're saying arg.length() > 0
 	  [0,1,2,3,7,8,10],
-	  [0,1,2,3,7,8,10]}
+	  [0,2,3,7,9,10],
+	  [0,2,3,7,8,19], <-- infeasible because node 3 states arg.length() == 0, but node 8 states arg.length() > 0
+	  [0,2,4,7,9,10], <-- infeasible because node 4 states arg.length() == 1, but node 9 states arg.length() == 0
+	  [0,2,4,7,8,10],
+	  [0,2,5,6,7,9,10],<--infeasible because node 5 states arg.length() == 2, but node 9 states arg.length() == 0
+	  [0,2,5,6,7,8,10],
+	  [0,1,2,6,7,9,10],<--infeasible because node 6 states arg.length() > 2, but node 9 states arg.length() == 0
+	  [0,1,2,6,7,8,10],
+	  [0,2,6,7,9,10],  <--infeasible because node 6 states arg.length() > 2, but node 9 states arg.length() == 0
+	  [0,2,6,7,8,10]
+	  }

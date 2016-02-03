@@ -1,27 +1,21 @@
 Question 2
 a) 
-test: x = [1,2,3,4,5]
-expected:  3
+test: x = []
 
 b)
-test: x = [-1,2,3,4,5]
-expected: 3
-actual: 2
+No test cases can show this
 
 c)
-test: x = [-1,2,2147483648,4,5]
+test: x = [-1,2,3,4,5]
 expected: 2
-actual: error
+actual: 3
 
 d)
 Error State
 x = [-10, -9, 0, 99, 100]
 i = 1
 count = 0
-PC = first iteration of if
+PC = i++
 
-Complete State
-x = [-10, -9, 0, 99, 100]
-i = 4
-count = 1
-PC = first iteration of if
+expected: 2
+actual: 1
